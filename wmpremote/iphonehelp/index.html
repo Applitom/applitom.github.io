@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>iPhone Navigation</title>
+<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<style type="text/css" media="screen">@import "iphonenav.css";</style>
+<script type="application/x-javascript" src="iphonenav.js"></script>
+</head>
+
+<body>
+    <h1 id="pageTitle"></h1>
+    <a id="homeButton" class="button" href="#WmpRemoteHelp">Home</a>    
+    <ul id="WmpRemoteHelp" title="WmpRemote Help" selected="true">
+        <li><a href="#FAQs">WmpRemote FAQ</a></li>
+    </ul>
+    <ul id="FAQs" title="WmpRemote FAQs">
+        <li><a href="#delhost">How can i delete host from the host list?</a></li>
+        <li><a href="#delsong">How can i delete a song from the playlist?</a></li>
+        <li><a href="#errstarthost">I get "error when starting host" when running the WmpRemote Server</a></li>
+        <li><a href="#pluginprob">I can only turn on windows media player but that's it. nothing more.</a></li>
+    </ul>
+     <div width="80%" id="delhost" class="panel" title="WmpRemote Help">
+     <b>How can i delete host from the host list?</b>
+     <br>
+     Go to the host list and slide your finger left to right on the host that you want to delete and the delete button will show up.
+    </div>
+     <div id="delsong" class="panel" title="WmpRemote Help">
+     	<b>How can i delete a song from the playlist?</b>
+     	<br>
+        Go to the playlist and slide your finger left to right on the song that you want to delete and the delete button will show up.
+    </div>
+     <div id="errstarthost" class="panel" title="WmpRemote Help">
+     	<b>I get "error when starting host" when running the WmpRemote Server.</b>
+     	<br><br>
+        1. The firewall blocks the application. <br>
+		when you run the server at the first time,<br>
+		the windows firewall should ask you if you want to allow the application.<br>
+		you must click allow because the server need to open network port.
+		if you clicked Block in the firewall dialog - go to the firewall settings in the control panel and allow the WmpRemote Server.
+		<br><br>
+		2. The port 8221 is already in use.<br>
+		Check if the WmpRemote is not already running (you should have icon of it in the notify area)
+		Try to restart your computer.
+		Check if other softwares on your computer dont use the port number.
+    </div>
+     <div id="pluginprob" class="panel" title="WmpRemote Help">
+     <b>I can only turn on windows media player but that's it. nothing more.<b>
+     <br>
+		1. Open Wmp and go to Tools -> Options <br>
+		2. Go to the Plug-ins tab and in the left list choose Background.<br>
+		3. Now you should see "uICE WMP Plugin" in the list. Check this plugin and try to remote Wmp with WmpRemote.
+    </div>
+
+</body>
+</html>
