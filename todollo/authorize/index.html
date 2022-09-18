@@ -1,7 +1,29 @@
 <!doctype html>
 <head>
+    <style>
+        .center {
+        
+          text-align: center;
+          width: 100%;
+        }
+        .centered {
+            text-align: center;
+        
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          /* bring your own prefixes */
+          transform: translate(-50%, -50%);
+        }
+        h1 {
+            font-size: 2.4em;
+            letter-spacing: -0.015em;
+            font-weight: 400;
+            color: #363636;
+        }
+    </style>
     <meta charset="utf-8">
-    <title>Redirecting...</title>
+    <title>Todollo</title>
     <script>
         var redirectToApp = function() {
             window.location.replace("todollo://authorize" + window.location.hash);
@@ -10,6 +32,10 @@
     </script>
 </head>
 <body>
-    
+    <div class="centered">
+        <img src="../../images/todollo_icon.png" style="border-radius: 15%;" width="200px" height="200px"/>
+        <h1>Todollo</h1>
+        <p>You are being redirected to Todollo...</p>    
+    </div>
 </body>
 </html>
