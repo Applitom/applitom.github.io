@@ -1,4 +1,19 @@
-<script>
+<!-- <script>
     alert("atajo://authorize" + window.location.hash)
     window.location.href = "atajo://authorize" + window.location.hash;
-</script>
+</script> -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        var redirectToApp = function() {
+            alert("atajo://authorize" + window.location.hash)
+            window.location.replace("atajo://authorize" + window.location.hash);
+        };
+        window.onload = redirectToApp;
+    </script>
+</head>
+<body></body>
+</html>
