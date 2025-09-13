@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Applitom - Digital Transformation Experts</title>
+    <title>Applitom</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,23 +17,25 @@
         }
 
         .hero-bg {
-            background: linear-gradient(-45deg, #0a0a0a, #1a202c, #003366, #0a0a0a);
-            background-size: 400% 400%;
-            animation: gradientBG 20s ease infinite;
+            background-color: #0a0a0a;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
 
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: radial-gradient(circle, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.8) 60%, #0a0a0a 100%);
+            padding: 4rem 0;
         }
 
         .service-card {
@@ -50,23 +52,14 @@
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            animation: fadeInAnimation 0.6s ease-out forwards;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .tech-logo {
-            filter: grayscale(100%) brightness(150%);
-            opacity: 0.6;
-            transition: all 0.3s ease;
-        }
-
-        .tech-logo:hover {
-            filter: grayscale(0%) brightness(100%);
-            opacity: 1;
+        @keyframes fadeInAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .sticky-nav {
@@ -83,6 +76,40 @@
         .sticky-nav.scrolled {
             border-bottom: 1px solid rgba(55, 65, 81, 0.5);
         }
+
+        /* Animated Typography */
+        .typing-effect {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .1em solid #3b82f6;
+            letter-spacing: .05em;
+            /* Adjusted timing for shorter text and added space */
+            animation: typing 2.2s steps(10, end), blink-caret .75s step-end infinite;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: #3b82f6;
+            }
+        }
     </style>
 </head>
 
@@ -93,7 +120,7 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="text-2xl font-bold text-white">
-                    <a href="#">Applitom<span class="text-blue-500">.</span></a>
+                    <a href="#">APPLITOM<span class="text-blue-500">.</span></a>
                 </div>
                 <nav class="hidden md:flex space-x-8">
                     <a href="#apps" class="text-slate-300 hover:text-blue-500 transition-colors">Apps</a>
@@ -109,15 +136,17 @@
     <main>
         <!-- Hero Section -->
         <section class="hero-bg min-h-screen flex items-center">
-            <div class="container mx-auto px-6 text-center">
-                <div class="max-w-4xl mx-auto">
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 fade-in leading-tight">
-                        APPLITOM
+            <canvas id="particle-canvas"></canvas>
+            <div class="container mx-auto px-6 text-center hero-content">
+                <div class="max-w-5xl mx-auto">
+                    <h1
+                        class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight h-24 flex items-center justify-center">
+                        <span class="typing-effect">APPLITOM<span class="text-blue-500">.</span> </span>
                     </h1>
-                    <p class="text-lg md:text-xl text-slate-300 mb-10 fade-in" style="transition-delay: 200ms;">
-                        building useful and fun apps
+                    <p class="text-lg md:text-xl text-slate-300 mb-10 fade-in" style="animation-delay: 2.4s;">
+                        Creating Useful, Beautiful Apps.
                     </p>
-                    <div class="fade-in" style="transition-delay: 400ms;">
+                    <div class="fade-in" style="animation-delay: 2.6s;">
                         <a href="#apps"
                             class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl text-lg transition-transform transform hover:scale-105">
                             Our Apps
@@ -130,15 +159,16 @@
         <!-- Apps Section -->
         <section id="apps" class="py-20 md:py-32 bg-[#111]">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16 fade-in">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Our Apps</h2>
-                    <p class="text-slate-400 mt-4 max-w-2xl mx-auto">We build tools and apps to make life a little
-                        easier and more fun.</p>
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white fade-in">Our Apps</h2>
+                    <p class="text-slate-400 mt-4 max-w-2xl mx-auto fade-in" style="animation-delay: 100ms;">We build
+                        tools and apps to make life a little easier and more fun.</p>
                 </div>
                 <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
                     <!-- App Card: mapMyTrips -->
-                    <div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col">
+                    <div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
+                        style="animation-delay: 200ms;">
                         <div class="mb-4"><img src="https://applitom.com/images/mapmytrips_icon.jpg"
                                 alt="mapMyTrips Icon" class="w-12 h-12 rounded-xl object-cover"></div>
                         <h3 class="text-xl font-semibold text-white mb-3">mapMyTrips</h3>
@@ -157,7 +187,7 @@
 
                     <!-- App Card: Kohand -->
                     <div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
-                        style="transition-delay: 100ms;">
+                        style="animation-delay: 300ms;">
                         <div class="mb-4"><img src="https://applitom.com/images/kohand_icon.jpg" alt="Kohand Icon"
                                 class="w-12 h-12 rounded-xl object-cover"></div>
                         <h3 class="text-xl font-semibold text-white mb-3">Kohand</h3>
@@ -176,7 +206,7 @@
 
                     <!-- App Card: ManyStep -->
                     <div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
-                        style="transition-delay: 200ms;">
+                        style="animation-delay: 400ms;">
                         <div class="mb-4"><img src="https://applitom.com/images/manysteps_icon.jpg" alt="ManyStep Icon"
                                 class="w-12 h-12 rounded-xl object-cover"></div>
                         <h3 class="text-xl font-semibold text-white mb-3">ManyStep</h3>
@@ -195,7 +225,7 @@
 
                     <!-- App Card: WmpRemote -->
                     <div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
-                        style="transition-delay: 300ms;">
+                        style="animation-delay: 500ms;">
                         <div class="mb-4"><img src="https://applitom.com/images/wmpremote_icon.jpg" alt="WmpRemote Icon"
                                 class="w-12 h-12 rounded-xl object-cover"></div>
                         <h3 class="text-xl font-semibold text-white mb-3">WmpRemote</h3>
@@ -213,7 +243,7 @@
 
                     <!-- App Card: GitBuddy -->
                     <div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
-                        style="transition-delay: 400ms;">
+                        style="animation-delay: 600ms;">
                         <div class="mb-4"><img src="https://applitom.com/images/gitbuddy_icon.png" alt="GitBuddy Icon"
                                 class="w-12 h-12 rounded-xl object-cover"></div>
                         <h3 class="text-xl font-semibold text-white mb-3">GitBuddy</h3>
@@ -231,7 +261,7 @@
 
                     <!-- App Card: Atajo -->
                     <div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
-                        style="transition-delay: 500ms;">
+                        style="animation-delay: 700ms;">
                         <div class="mb-4"><img src="https://applitom.com/images/atajo_icon.png" alt="Atajo Icon"
                                 class="w-12 h-12 rounded-xl object-cover"></div>
                         <h3 class="text-xl font-semibold text-white mb-3">Atajo</h3>
@@ -249,7 +279,7 @@
 
                     <!-- App Card: WorthTracker -->
                     <div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
-                        style="transition-delay: 600ms;">
+                        style="animation-delay: 800ms;">
                         <div class="mb-4"><img src="https://applitom.com/images/worthtracker_icon.png"
                                 alt="WorthTracker Icon" class="w-12 h-12 rounded-xl object-cover"></div>
                         <h3 class="text-xl font-semibold text-white mb-3">WorthTracker</h3>
@@ -267,7 +297,7 @@
 
                     <!-- App Card: Todollo -->
                     <div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
-                        style="transition-delay: 700ms;">
+                        style="animation-delay: 900ms;">
                         <div class="mb-4"><img src="https://applitom.com/images/todollo_icon.png" alt="Todollo Icon"
                                 class="w-12 h-12 rounded-xl object-cover"></div>
                         <h3 class="text-xl font-semibold text-white mb-3">Todollo</h3>
@@ -289,13 +319,14 @@
         <!-- Contact Section -->
         <section id="contact" class="py-20 md:py-32 bg-[#111]">
             <div class="container mx-auto px-6">
-                <div class="max-w-3xl mx-auto text-center fade-in">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Contact Us</h2>
-                    <p class="text-slate-400 mt-4 mb-10 max-w-xl mx-auto">Have a project in mind or just want to say
-                        hello? We'd love to hear from you. Reach out and let's start the conversation.</p>
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white fade-in">Contact Us</h2>
+                    <p class="text-slate-400 mt-4 mb-10 max-w-xl mx-auto fade-in" style="animation-delay: 100ms;">Have a
+                        project in mind or just want to say hello? We'd love to hear from you. Reach out and let's start
+                        the conversation.</p>
                 </div>
 
-                <div class="max-w-xl mx-auto mt-12 fade-in" style="transition-delay: 200ms;">
+                <div class="max-w-xl mx-auto mt-12 fade-in" style="animation-delay: 200ms;">
                     <div id="form-error" class="text-red-500 text-center mb-4 hidden font-medium"></div>
                     <form id="contact-form" action="https://formspree.io/applitom+contact@gmail.com" method="post">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -347,18 +378,21 @@
 
     <script>
         // JS for scroll animations
-        const faders = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
+        document.addEventListener('DOMContentLoaded', () => {
+            const faders = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
 
-        faders.forEach(fader => {
-            observer.observe(fader);
+            faders.forEach(fader => {
+                observer.observe(fader);
+            });
         });
 
         // JS for sticky nav background on scroll
@@ -389,6 +423,84 @@
                 formError.classList.add('hidden');
             }
         });
+
+        // Particle network animation
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 1.5 + 1;
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = Math.random() * 2 - 1;
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+                this.x += this.speedX;
+                this.y += this.speedY;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.8)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            const numberOfParticles = (canvas.width * canvas.height) / 9000;
+            particles = [];
+            for (let i = 0; i < numberOfParticles; i++) {
+                particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
+            }
+        }
+        initParticles();
+        window.addEventListener('resize', initParticles);
+
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
+
+        function connectParticles() {
+            let opacityValue = 1;
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    const dx = particles[a].x - particles[b].x;
+                    const dy = particles[a].y - particles[b].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 100) {
+                        opacityValue = 1 - (distance / 100);
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${opacityValue})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        animate();
     </script>
 </body>
 
