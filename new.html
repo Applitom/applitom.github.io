@@ -296,32 +296,33 @@
                 </div>
 
                 <div class="max-w-xl mx-auto mt-12 fade-in" style="transition-delay: 200ms;">
-                    <form action="https://formspree.io/applitom+contact@gmail.com" method="post">
+                    <div id="form-error" class="text-red-500 text-center mb-4 hidden font-medium"></div>
+                    <form id="contact-form" action="https://formspree.io/applitom+contact@gmail.com" method="post">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="sr-only">Name</label>
                                 <input type="text" name="name" id="name" autocomplete="name"
                                     class="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
-                                    placeholder="Your Name">
+                                    placeholder="Your Name" required>
                             </div>
                             <div>
                                 <label for="email" class="sr-only">Email</label>
                                 <input type="email" name="email" id="email" autocomplete="email"
                                     class="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
-                                    placeholder="Your Email">
+                                    placeholder="Your Email" required>
                             </div>
                         </div>
                         <div class="mt-6">
                             <label for="subject" class="sr-only">Subject</label>
                             <input type="text" name="subject" id="subject"
                                 class="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
-                                placeholder="Subject">
+                                placeholder="Subject" required>
                         </div>
                         <div class="mt-6">
                             <label for="message" class="sr-only">Message</label>
                             <textarea name="message" id="message" rows="4"
                                 class="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
-                                placeholder="Your Message"></textarea>
+                                placeholder="Your Message" required></textarea>
                         </div>
                         <div class="mt-8 text-center">
                             <button type="submit"
@@ -369,6 +370,25 @@
                 navbar.classList.remove('scrolled');
             }
         };
+
+        // JS for form validation
+        const contactForm = document.getElementById('contact-form');
+        const formError = document.getElementById('form-error');
+
+        contactForm.addEventListener('submit', function (event) {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !subject || !message) {
+                event.preventDefault(); // Stop form submission
+                formError.textContent = 'Please fill out all fields before sending.';
+                formError.classList.remove('hidden');
+            } else {
+                formError.classList.add('hidden');
+            }
+        });
     </script>
 </body>
 
