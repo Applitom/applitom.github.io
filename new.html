@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Applitom - Digital Transformation Experts</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Inter', sans-serif;
+			background-color: #0a0a0a;
+			color: #e2e8f0;
+		}
+
+		.hero-bg {
+			background: linear-gradient(-45deg, #0a0a0a, #1a202c, #003366, #0a0a0a);
+			background-size: 400% 400%;
+			animation: gradientBG 20s ease infinite;
+		}
+
+		@keyframes gradientBG {
+			0% {
+				background-position: 0% 50%;
+			}
+
+			50% {
+				background-position: 100% 50%;
+			}
+
+			100% {
+				background-position: 0% 50%;
+			}
+		}
+
+		.service-card {
+			transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+			border-color: rgba(55, 65, 81, 0.5);
+		}
+
+		.service-card:hover {
+			transform: translateY(-10px);
+			border-color: #3b82f6;
+			box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04);
+		}
+
+		.fade-in {
+			opacity: 0;
+			transform: translateY(20px);
+			transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+		}
+
+		.fade-in.visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.tech-logo {
+			filter: grayscale(100%) brightness(150%);
+			opacity: 0.6;
+			transition: all 0.3s ease;
+		}
+
+		.tech-logo:hover {
+			filter: grayscale(0%) brightness(100%);
+			opacity: 1;
+		}
+
+		.sticky-nav {
+			position: sticky;
+			top: 0;
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			background-color: rgba(10, 10, 10, 0.7);
+			z-index: 50;
+			transition: all 0.3s ease;
+			border-bottom: 1px solid transparent;
+		}
+
+		.sticky-nav.scrolled {
+			border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+		}
+	</style>
+</head>
+
+<body class="antialiased">
+
+	<!-- Header / Navigation -->
+	<header id="navbar" class="sticky-nav">
+		<div class="container mx-auto px-6 py-4">
+			<div class="flex items-center justify-between">
+				<div class="text-2xl font-bold text-white">
+					<a href="#">Applitom<span class="text-blue-500">.</span></a>
+				</div>
+				<nav class="hidden md:flex space-x-8">
+					<a href="#apps" class="text-slate-300 hover:text-blue-500 transition-colors">Apps</a>
+					<a href="#contact" class="text-slate-300 hover:text-blue-500 transition-colors">Contact</a>
+				</nav>
+				<div class="md:hidden">
+					<!-- Mobile menu button can be added here -->
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<!-- Hero Section -->
+		<section class="hero-bg min-h-screen flex items-center">
+			<div class="container mx-auto px-6 text-center">
+				<div class="max-w-4xl mx-auto">
+					<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 fade-in leading-tight">
+						APPLITOM
+					</h1>
+					<p class="text-lg md:text-xl text-slate-300 mb-10 fade-in" style="transition-delay: 200ms;">
+						building useful and fun apps
+					</p>
+					<div class="fade-in" style="transition-delay: 400ms;">
+						<a href="#apps"
+							class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl text-lg transition-transform transform hover:scale-105">
+							Our Apps
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Apps Section -->
+		<section id="apps" class="py-20 md:py-32 bg-[#111]">
+			<div class="container mx-auto px-6">
+				<div class="text-center mb-16 fade-in">
+					<h2 class="text-3xl md:text-4xl font-bold text-white">Our Apps</h2>
+					<p class="text-slate-400 mt-4 max-w-2xl mx-auto">We build tools and apps to make life a little
+						easier and more fun.</p>
+				</div>
+				<div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+					<!-- App Card: mapMyTrips -->
+					<div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col">
+						<div class="mb-4"><img src="https://applitom.com/images/mapmytrips_icon.jpg"
+								alt="mapMyTrips Icon" class="w-12 h-12 rounded-xl object-cover"></div>
+						<h3 class="text-xl font-semibold text-white mb-3">mapMyTrips</h3>
+						<p class="text-slate-400 flex-grow text-sm">Visually track and share your travel routes and
+							experiences.</p>
+						<a href="https://apps.apple.com/us/app/mapmytrips/id1313987951" target="_blank"
+							rel="noopener noreferrer"
+							class="text-blue-400 hover:text-blue-500 mt-4 inline-flex items-center font-semibold">View
+							on App Store <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+								viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+								stroke-linecap="round" stroke-linejoin="round" class="ml-2">
+								<line x1="7" y1="17" x2="17" y2="7" />
+								<polyline points="7 7 17 7 17 17" />
+							</svg></a>
+					</div>
+
+					<!-- App Card: Kohand -->
+					<div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
+						style="transition-delay: 100ms;">
+						<div class="mb-4"><img src="https://applitom.com/images/kohand_icon.jpg" alt="Kohand Icon"
+								class="w-12 h-12 rounded-xl object-cover"></div>
+						<h3 class="text-xl font-semibold text-white mb-3">Kohand</h3>
+						<p class="text-slate-400 flex-grow text-sm">An intuitive tool for managing tasks and team
+							collaboration.</p>
+						<a href="https://apps.apple.com/app/kohand/id1061717006" target="_blank"
+							rel="noopener noreferrer"
+							class="text-blue-400 hover:text-blue-500 mt-4 inline-flex items-center font-semibold">View
+							on App Store <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+								viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+								stroke-linecap="round" stroke-linejoin="round" class="ml-2">
+								<line x1="7" y1="17" x2="17" y2="7" />
+								<polyline points="7 7 17 7 17 17" />
+							</svg></a>
+					</div>
+
+					<!-- App Card: ManyStep -->
+					<div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
+						style="transition-delay: 200ms;">
+						<div class="mb-4"><img src="https://applitom.com/images/manysteps_icon.jpg" alt="ManyStep Icon"
+								class="w-12 h-12 rounded-xl object-cover"></div>
+						<h3 class="text-xl font-semibold text-white mb-3">ManyStep</h3>
+						<p class="text-slate-400 flex-grow text-sm">Achieve your fitness goals with powerful
+							step-tracking.</p>
+						<a href="https://apps.apple.com/app/manysteps/id1448107168" target="_blank"
+							rel="noopener noreferrer"
+							class="text-blue-400 hover:text-blue-500 mt-4 inline-flex items-center font-semibold">View
+							on App Store <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+								viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+								stroke-linecap="round" stroke-linejoin="round" class="ml-2">
+								<line x1="7" y1="17" x2="17" y2="7" />
+								<polyline points="7 7 17 7 17 17" />
+							</svg></a>
+					</div>
+
+					<!-- App Card: WmpRemote -->
+					<div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
+						style="transition-delay: 300ms;">
+						<div class="mb-4"><img src="https://applitom.com/images/wmpremote_icon.jpg" alt="WmpRemote Icon"
+								class="w-12 h-12 rounded-xl object-cover"></div>
+						<h3 class="text-xl font-semibold text-white mb-3">WmpRemote</h3>
+						<p class="text-slate-400 flex-grow text-sm">Control Windows Media Player from anywhere in your
+							home.</p>
+						<a href="https://applitom.com/wmpremote" target="_blank" rel="noopener noreferrer"
+							class="text-blue-400 hover:text-blue-500 mt-4 inline-flex items-center font-semibold">Visit
+							Website <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="ml-2">
+								<line x1="7" y1="17" x2="17" y2="7" />
+								<polyline points="7 7 17 7 17 17" />
+							</svg></a>
+					</div>
+
+					<!-- App Card: GitBuddy -->
+					<div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
+						style="transition-delay: 400ms;">
+						<div class="mb-4"><img src="https://applitom.com/images/gitbuddy_icon.png" alt="GitBuddy Icon"
+								class="w-12 h-12 rounded-xl object-cover"></div>
+						<h3 class="text-xl font-semibold text-white mb-3">GitBuddy</h3>
+						<p class="text-slate-400 flex-grow text-sm">Your friendly companion for managing Git
+							repositories with ease.</p>
+						<a href="https://gitbuddy.app" target="_blank" rel="noopener noreferrer"
+							class="text-blue-400 hover:text-blue-500 mt-4 inline-flex items-center font-semibold">Visit
+							Website <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="ml-2">
+								<line x1="7" y1="17" x2="17" y2="7" />
+								<polyline points="7 7 17 7 17 17" />
+							</svg></a>
+					</div>
+
+					<!-- App Card: Atajo -->
+					<div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
+						style="transition-delay: 500ms;">
+						<div class="mb-4"><img src="https://applitom.com/images/atajo_icon.png" alt="Atajo Icon"
+								class="w-12 h-12 rounded-xl object-cover"></div>
+						<h3 class="text-xl font-semibold text-white mb-3">Atajo</h3>
+						<p class="text-slate-400 flex-grow text-sm">Boost your productivity with custom keyboard
+							shortcuts.</p>
+						<a href="https://applitom.com/atajo" target="_blank" rel="noopener noreferrer"
+							class="text-blue-400 hover:text-blue-500 mt-4 inline-flex items-center font-semibold">Visit
+							Website <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="ml-2">
+								<line x1="7" y1="17" x2="17" y2="7" />
+								<polyline points="7 7 17 7 17 17" />
+							</svg></a>
+					</div>
+
+					<!-- App Card: WorthTracker -->
+					<div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
+						style="transition-delay: 600ms;">
+						<div class="mb-4"><img src="https://applitom.com/images/worthtracker_icon.png"
+								alt="WorthTracker Icon" class="w-12 h-12 rounded-xl object-cover"></div>
+						<h3 class="text-xl font-semibold text-white mb-3">WorthTracker</h3>
+						<p class="text-slate-400 flex-grow text-sm">Monitor your net worth and track assets and
+							liabilities.</p>
+						<a href="https://worthtracker.com" target="_blank" rel="noopener noreferrer"
+							class="text-blue-400 hover:text-blue-500 mt-4 inline-flex items-center font-semibold">Visit
+							Website <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="ml-2">
+								<line x1="7" y1="17" x2="17" y2="7" />
+								<polyline points="7 7 17 7 17 17" />
+							</svg></a>
+					</div>
+
+					<!-- App Card: Todollo -->
+					<div class="service-card bg-[#1a1a1a] p-8 rounded-2xl border fade-in h-full flex flex-col"
+						style="transition-delay: 700ms;">
+						<div class="mb-4"><img src="https://applitom.com/images/todollo_icon.png" alt="Todollo Icon"
+								class="w-12 h-12 rounded-xl object-cover"></div>
+						<h3 class="text-xl font-semibold text-white mb-3">Todollo</h3>
+						<p class="text-slate-400 flex-grow text-sm">A minimalist to-do list to help you organize your
+							day.</p>
+						<a href="https://applitom.com/todollo" target="_blank" rel="noopener noreferrer"
+							class="text-blue-400 hover:text-blue-500 mt-4 inline-flex items-center font-semibold">Visit
+							Website <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="ml-2">
+								<line x1="7" y1="17" x2="17" y2="7" />
+								<polyline points="7 7 17 7 17 17" />
+							</svg></a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="py-20 md:py-32 bg-[#111]">
+			<div class="container mx-auto px-6">
+				<div class="max-w-3xl mx-auto text-center fade-in">
+					<h2 class="text-3xl md:text-4xl font-bold text-white">Contact Us</h2>
+					<p class="text-slate-400 mt-4 mb-10 max-w-xl mx-auto">Have a project in mind or just want to say
+						hello? We'd love to hear from you. Reach out and let's start the conversation.</p>
+				</div>
+
+				<div class="max-w-xl mx-auto mt-12 fade-in" style="transition-delay: 200ms;">
+					<form action="https://formspree.io/applitom+contact@gmail.com" method="post">
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+							<div>
+								<label for="name" class="sr-only">Name</label>
+								<input type="text" name="name" id="name" autocomplete="name"
+									class="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
+									placeholder="Your Name">
+							</div>
+							<div>
+								<label for="email" class="sr-only">Email</label>
+								<input type="email" name="email" id="email" autocomplete="email"
+									class="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
+									placeholder="Your Email">
+							</div>
+						</div>
+						<div class="mt-6">
+							<label for="subject" class="sr-only">Subject</label>
+							<input type="text" name="subject" id="subject"
+								class="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
+								placeholder="Subject">
+						</div>
+						<div class="mt-6">
+							<label for="message" class="sr-only">Message</label>
+							<textarea name="message" id="message" rows="4"
+								class="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
+								placeholder="Your Message"></textarea>
+						</div>
+						<div class="mt-8 text-center">
+							<button type="submit"
+								class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-12 rounded-lg text-lg transition-transform transform hover:scale-105">
+								Send Message
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<!-- Footer -->
+	<footer class="bg-black py-8">
+		<div class="container mx-auto px-6 text-center text-slate-500">
+			<p>&copy; 2024 Applitom. All rights reserved.</p>
+		</div>
+	</footer>
+
+
+	<script>
+		// JS for scroll animations
+		const faders = document.querySelectorAll('.fade-in');
+		const observer = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+					observer.unobserve(entry.target);
+				}
+			});
+		}, { threshold: 0.1 });
+
+		faders.forEach(fader => {
+			observer.observe(fader);
+		});
+
+		// JS for sticky nav background on scroll
+		const navbar = document.getElementById('navbar');
+		window.onscroll = () => {
+			if (window.scrollY > 50) {
+				navbar.classList.add('scrolled');
+			} else {
+				navbar.classList.remove('scrolled');
+			}
+		};
+	</script>
+</body>
+
+</html>
