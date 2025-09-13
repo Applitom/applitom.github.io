@@ -112,9 +112,31 @@
                     <a href="#apps" class="text-slate-300 hover:text-blue-500 transition-colors">Apps</a>
                     <a href="#contact" class="text-slate-300 hover:text-blue-500 transition-colors">Contact</a>
                 </nav>
+                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <!-- Mobile menu button can be added here -->
+                    <button id="menu-btn" type="button"
+                        class="z-50 block text-slate-300 hover:text-white focus:outline-none">
+                        <svg id="menu-open-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                        <svg id="menu-close-icon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
                 </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden fixed top-0 left-0 w-full h-screen bg-black/90 backdrop-blur-sm z-40">
+            <div class="flex flex-col items-center justify-center h-full space-y-8">
+                <a href="#apps"
+                    class="mobile-menu-link text-3xl font-bold text-white hover:text-blue-500 transition-colors">Apps</a>
+                <a href="#contact"
+                    class="mobile-menu-link text-3xl font-bold text-white hover:text-blue-500 transition-colors">Contact</a>
             </div>
         </div>
     </header>
@@ -409,6 +431,32 @@
                 formError.classList.add('hidden');
             }
         });
+
+        // Mobile Menu JS
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOpenIcon = document.getElementById('menu-open-icon');
+        const menuCloseIcon = document.getElementById('menu-close-icon');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('hidden');
+            menuOpenIcon.classList.toggle('hidden');
+            menuCloseIcon.classList.toggle('hidden');
+            // Prevent body scroll when menu is open
+            if (!mobileMenu.classList.contains('hidden')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        };
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
 
         // Particle network animation
         const canvas = document.getElementById('particle-canvas');
